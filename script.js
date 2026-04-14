@@ -26,14 +26,22 @@ cards.forEach(card => {
   observer.observe(card);
 });
 
-// resumo "Leia mais" no texto de apresentação (mobile)
-const heroDescription = document.getElementById('hero-description');
-const heroReadMoreBtn = document.getElementById('hero-read-more');
-
-if (heroDescription && heroReadMoreBtn) {
-  heroReadMoreBtn.addEventListener('click', () => {
-    const isExpanded = heroDescription.classList.toggle('expanded');
-    heroReadMoreBtn.textContent = isExpanded ? 'Ler menos' : 'Leia mais';
-    heroReadMoreBtn.setAttribute('aria-expanded', String(isExpanded));
+// resumo "Leia mais" (mobile — ver CSS max-width 820px)
+function setupReadMore(textEl, btnEl) {
+  if (!textEl || !btnEl) return;
+  btnEl.addEventListener('click', () => {
+    const isExpanded = textEl.classList.toggle('expanded');
+    btnEl.textContent = isExpanded ? 'Ler menos' : 'Leia mais';
+    btnEl.setAttribute('aria-expanded', String(isExpanded));
   });
 }
+
+setupReadMore(
+  document.getElementById('hero-description'),
+  document.getElementById('hero-read-more')
+);
+
+setupReadMore(
+  document.getElementById('sobre-text'),
+  document.getElementById('sobre-read-more')
+);

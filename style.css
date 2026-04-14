@@ -200,6 +200,10 @@ h2 {
   max-width: 720px;
 }
 
+.sobre-text {
+  transition: all 0.25s ease;
+}
+
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
@@ -328,7 +332,8 @@ footer {
     line-height: 1.5;
   }
 
-  .hero-description {
+  .hero-description,
+  .sobre-text {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -336,7 +341,8 @@ footer {
     margin-bottom: 10px;
   }
 
-  .hero-description.expanded {
+  .hero-description.expanded,
+  .sobre-text.expanded {
     display: block;
   }
 
@@ -345,6 +351,10 @@ footer {
     margin-bottom: 12px;
     font-size: 0.83rem;
     padding: 6px 12px;
+  }
+
+  #sobre .read-more-btn {
+    margin: 0 0 4px;
   }
 
   .hero-photo img {
